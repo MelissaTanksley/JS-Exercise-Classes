@@ -42,6 +42,21 @@ class Airplane {
 
 class Person {
 
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(someFood) {
+    return this.stomach.length < 10 ? this.stomach.push(someFood) : null;
+  }
+  poop() {
+    this.stomach = [];
+    return this.stomach;
+  }
+  toString() {
+    return `${this.name}, ${this.age}`;
+  }
 }
 
 /*
@@ -60,6 +75,24 @@ class Person {
 
 class Car {
 
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    return (this.tank += gallons);
+  }
+  drive(distance) {
+    this.tank -= Math.floor(distance / this.milesPerGallon);
+    if (this.tank <= 0) {
+      this.odometer += distance - 1;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    } else {
+      this.odometer += distance;
+    }
+  }
 }
 
 /*
@@ -74,9 +107,6 @@ class Car {
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
-class Lambdasian {
-
-}
 
 /*
   TASK 4
@@ -92,9 +122,7 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
 
-}
 
 /*
   TASK 5
@@ -111,10 +139,8 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
 
-}
-
+  
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -128,9 +154,7 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
 
-}
 
 /*
   STRETCH PROBLEM (no tests!)
